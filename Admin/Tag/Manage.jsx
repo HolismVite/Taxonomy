@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { ItemAction } from '@List'
+import { EntityAction } from '@List'
 import { DialogForm, Checks, app, post } from '@Form'
 
 const ManageTags = ({
@@ -43,7 +43,7 @@ const ManageTags = ({
     />
 
     return <>
-        <ItemAction
+        <EntityAction
             {...rest}
             title="Manage tags"
             icon={LocalOfferIcon}

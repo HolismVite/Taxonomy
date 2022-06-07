@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
-import { ItemAction } from '@List'
+import { EntityAction } from '@List'
 import { DialogForm, Checks, app, post } from '@Form'
 
 const ManageHierarchies = ({
@@ -44,7 +44,7 @@ const ManageHierarchies = ({
     />
 
     return <>
-        <ItemAction
+        <EntityAction
             {...rest}
             title={`Manage ${pluralName || "hierarchies"}`}
             icon={AccountTreeIcon}

@@ -54,7 +54,7 @@ const row = (item) => <>
     </td>
 </>
 
-const itemActions = (item) => <>
+const entityActions = (item) => <>
     <EntitySeo
         entityType='Tag'
         entityGuid={item.guid}
@@ -69,7 +69,7 @@ const Tags = () => {
         sorts={sorts}
         headers={headers}
         row={row}
-        itemActions={itemActions}
+        entityActions={entityActions}
         upsert={UpsertTag}
         hasEdit={true}
         hasDelete={true}

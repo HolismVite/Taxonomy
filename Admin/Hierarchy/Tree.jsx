@@ -9,7 +9,7 @@ const filters = <>
     />
 </>
 
-const itemActions = (item) => <>
+const entityActions = (item) => <>
     <EntitySeo
         entityType='Hierarchy'
         entityGuid={item.guid}
@@ -28,7 +28,7 @@ const HierarchyTree = ({
         show={item => {
             return item.title
         }}
-        itemActions={itemActions}
+        entityActions={entityActions}
         upsert={Upsert}
         hasEdit={true}
         hasDelete={true}
