@@ -24,7 +24,7 @@ const sorts = [
 
 const headers = <>
     <th></th>
-    <th className='text-left'>Name</th>
+    <th start={true}>Name</th>
     <th>Is active?</th>
 </>
 
