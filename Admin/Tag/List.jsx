@@ -24,7 +24,7 @@ const sorts = [
 
 const headers = <>
     <th></th>
-    <th start={true}>Name</th>
+    <th start>Name</th>
     <th>Is active?</th>
 </>
 
