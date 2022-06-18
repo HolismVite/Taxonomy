@@ -29,7 +29,6 @@ const ManageHierarchies = ({
             .then(data => {
                 setProgress(false);
                 app.success(`${pluralName || "Hierarchies"} updated`)
-                app.emit(app.itemUpserted);
             }, error => {
                 setProgress(false);
                 app.error(error)

@@ -28,7 +28,6 @@ const ManageTags = ({
             .then(data => {
                 setProgress(false);
                 app.success('Tags updated')
-                app.emit(app.itemUpserted);
             }, error => {
                 setProgress(false);
                 app.error(error)
