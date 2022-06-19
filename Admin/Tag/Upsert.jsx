@@ -1,4 +1,4 @@
-import { Form, Text, Slug, LongText } from '@Form'
+import { DialogForm, Text, Slug, LongText } from '@Form'
 
 const inputs = <>
     <Text
@@ -14,7 +14,7 @@ const inputs = <>
 </>
 
 const UpsertTag = () => {
-    return <Form
+    return <DialogForm
         title='Tag'
         entityType='Tag'
         inputs={inputs}
