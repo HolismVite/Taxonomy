@@ -1,59 +1,18 @@
-import { useState } from 'react'
 import AccountTreeIcon from '@mui/icons-material/AccountTree'
 import { EntityAction } from '@List'
-import { DialogForm, Checks, app, post } from '@Form'
+import HierarchiesDialog from './HierarchiesDialog'
 
 const ManageHierarchies = ({
     pluralName,
-    entityType,
-    entityGuid,
     ...rest
 }) => {
 
-    const [chosenValues, setChosenValues] = useState([])
-
-    const inputs = <>
-        <Checks
-            itemsUrl={`/hierarchy/entityTypeHierarchies?entityType=${entityType}`}
-            checkedItemsUrl={`/entityHierarchy/list?entityType=${entityType}&entityGuid=${entityGuid}`}
-            show={item => item.name}
-            choose={item => item.hierarchyGuid || item.guid}
-            set={setChosenValues}
-        />
-    </>
-
-    const save = ({
-        error,
-        setProgress,
-        success,
-    }) => {
-        console.log(chosenValues)
-        setProgress(true);
-        post(`/entityHierarchy/putInHierarchies?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
-            .then(data => {
-                setProgress(false);
-                success(`${pluralName || "Hierarchies"} updated`)
-            }, e => {
-                setProgress(false);
-                error(e)
-            })
-    }
-
-    const HierarchiesDialog = (item) => <DialogForm
-        entityType="Hierarchy"
+    return <EntityAction
+        {...rest}
         title={`Manage ${pluralName || "hierarchies"}`}
-        inputs={inputs}
-        okAction={save}
+        icon={AccountTreeIcon}
+        dialog={HierarchiesDialog}
     />
-
-    return <>
-        <EntityAction
-            {...rest}
-            title={`Manage ${pluralName || "hierarchies"}`}
-            icon={AccountTreeIcon}
-            dialog={HierarchiesDialog}
-        />
-    </>
 }
 
 export default ManageHierarchies
