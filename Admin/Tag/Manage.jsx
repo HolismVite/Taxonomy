@@ -1,58 +1,12 @@
-import { useState } from 'react'
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { EntityAction } from '@List'
-import { DialogForm, Checks, app, post } from '@Form'
+import TagsDialog from './TagsDialog'
 
-const ManageTags = ({
-    entityType,
-    entityGuid,
-    ...rest
-}) => {
-
-    const [chosenValues, setChosenValues] = useState([])
-
-    const inputs = <>
-        <Checks
-            itemsUrl={`/tag/entityTypeTags?entityType=${entityType}`}
-            checkedItemsUrl={`/entityTag/list?entityType=${entityType}&entityGuid=${entityGuid}`}
-            show={item => item.name}
-            choose={item => item.tagGuid || item.guid}
-            set={setChosenValues}
-        />
-    </>
-
-    const save = ({
-        error,
-        setProgress,
-        success,
-    }) => {
-        console.log(chosenValues)
-        setProgress(true);
-        post(`/entityTag/putInTags?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
-            .then(data => {
-                setProgress(false);
-                success('Tags updated')
-            }, e => {
-                setProgress(false);
-                error(e)
-            })
-    }
-
-    const TagsDialog = (item) => <DialogForm
-        entityType="Tag"
-        title="Manage tags"
-        inputs={inputs}
-        okAction={save}
-    />
-
-    return <>
-        <EntityAction
-            {...rest}
-            title="Manage tags"
-            icon={LocalOfferIcon}
-            dialog={TagsDialog}
-        />
-    </>
-}
+const ManageTags = (props) => <EntityAction
+    {...props}
+    title="Manage tags"
+    icon={LocalOfferIcon}
+    dialog={TagsDialog}
+/>
 
 export default ManageTags
