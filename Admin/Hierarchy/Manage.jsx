@@ -22,16 +22,20 @@ const ManageHierarchies = ({
         />
     </>
 
-    const save = ({ setProgress }) => {
+    const save = ({
+        error,
+        setProgress,
+        success,
+    }) => {
         console.log(chosenValues)
         setProgress(true);
         post(`/entityHierarchy/putInHierarchies?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
             .then(data => {
                 setProgress(false);
-                app.success(`${pluralName || "Hierarchies"} updated`)
-            }, error => {
+                success(`${pluralName || "Hierarchies"} updated`)
+            }, e => {
                 setProgress(false);
-                app.error(error)
+                error(e)
             })
     }
 

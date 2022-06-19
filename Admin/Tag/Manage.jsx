@@ -21,16 +21,20 @@ const ManageTags = ({
         />
     </>
 
-    const save = ({ setProgress }) => {
+    const save = ({
+        error,
+        setProgress,
+        success,
+    }) => {
         console.log(chosenValues)
         setProgress(true);
         post(`/entityTag/putInTags?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
             .then(data => {
                 setProgress(false);
-                app.success('Tags updated')
-            }, error => {
+                success('Tags updated')
+            }, e => {
                 setProgress(false);
-                app.error(error)
+                error(e)
             })
     }
 
