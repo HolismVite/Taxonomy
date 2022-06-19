@@ -3,7 +3,12 @@
         "locale": "fa",
         "translations": {
             "You have not provided a name": "نام را وارد نکرده اید",
-            "Tag": "برچسب"
+            "Tag": "برچسب",
+            "Tags updated": "برچسب ها به روز شدند",
+            "Manage Hierarchies": "مدیریت دسته بندی ها",
+            "Manage Tags": "مدیریت برچسب ها",
+            "Categories": "دسته بندی ها",
+            "Tags": "برچسب ها"
         }
     }
 ]
