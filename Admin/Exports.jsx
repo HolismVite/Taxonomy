@@ -6,12 +6,12 @@ import ManageHierarchies from './Hierarchy/Manage'
 
 const TaxonomyRoutes = [
     {
-        "path": "/hierarchies",
-        "component": HierarchyTree
+        path: "/hierarchies",
+        component: HierarchyTree
     },
     {
-        "path": "/tags",
-        "component": Tags
+        path: "/tags",
+        component: Tags
     }
 ]
 
