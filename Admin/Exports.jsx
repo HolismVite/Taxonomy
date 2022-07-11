@@ -1,5 +1,5 @@
-import { Hierarchies } from './Hierarchy/List'
-import { HierarchyTree } from './Hierarchy/Tree'
+import Hierarchies from './Hierarchy/List'
+import HierarchyTree from './Hierarchy/Tree'
 import Tags from './Tag/List'
 import ManageTags from './Tag/Manage'
 import ManageHierarchies from './Hierarchy/Manage'
