@@ -36,4 +36,4 @@ const HierarchyTree = ({
     />
 }
 
-export { HierarchyTree }
+export default HierarchyTree
