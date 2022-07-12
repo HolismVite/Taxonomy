@@ -14,8 +14,8 @@ const HierarchiesDialog = ({
 
     const inputs = <>
         <Checks
-            itemsUrl={`/hierarchy/entityTypeHierarchies?entityType=${entityType}`}
-            checkedItemsUrl={`/entityHierarchy/list?entityType=${entityType}&entityGuid=${entityGuid}`}
+            itemsUrl={`/hierarchy/entityTypeHierarchies?entityType=${app.camelize(entityType)}`}
+            checkedItemsUrl={`/entityHierarchy/list?entityType=${app.camelize(entityType)}&entityGuid=${entityGuid}`}
             show={item => item.name}
             choose={item => item.hierarchyGuid || item.guid}
             set={setChosenValues}
@@ -29,7 +29,7 @@ const HierarchiesDialog = ({
     }) => {
         console.log(chosenValues)
         setProgress(true);
-        post(`/entityHierarchy/putInHierarchies?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
+        post(`/entityHierarchy/putInHierarchies?entityType=${app.camelize(entityType)}&entityGuid=${entityGuid}`, chosenValues)
             .then(data => {
                 setProgress(false);
                 success(`${pluralName || "Hierarchies"} updated`)

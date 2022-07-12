@@ -13,8 +13,8 @@ const TagsDialog = ({
 
     const inputs = <>
         <Checks
-            itemsUrl={`/tag/entityTypeTags?entityType=${entityType}`}
-            checkedItemsUrl={`/entityTag/list?entityType=${entityType}&entityGuid=${entityGuid}`}
+            itemsUrl={`/tag/entityTypeTags?entityType=${app.camelize(entityType)}`}
+            checkedItemsUrl={`/entityTag/list?entityType=${app.camelize(entityType)}&entityGuid=${entityGuid}`}
             show={item => item.name}
             choose={item => item.tagGuid || item.guid}
             set={setChosenValues}
@@ -28,7 +28,7 @@ const TagsDialog = ({
     }) => {
         console.log(chosenValues)
         setProgress(true);
-        post(`/entityTag/putInTags?entityType=${entityType}&entityGuid=${entityGuid}`, chosenValues)
+        post(`/entityTag/putInTags?entityType=${app.camelize(entityType)}&entityGuid=${entityGuid}`, chosenValues)
             .then(data => {
                 setProgress(false);
                 success('Tags updated')
