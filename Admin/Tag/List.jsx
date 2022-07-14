@@ -49,7 +49,7 @@ const row = (item) => <>
         <BooleanProperty
             column='isActive'
             value={item.isActive}
-            actionUrl={`/tag/toggleIsActive/${item.id}`}
+            actionUrl={`/tag/toggleBoolean?id=${item.id}&property=IsActive`}
         />
     </td>
 </>
